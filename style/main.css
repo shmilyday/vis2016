@@ -1,0 +1,43 @@
+.main{
+	position: absolute;
+	left: 50%;
+	width: 980px;
+	border: 1px solid #EEE;
+	margin-left: -490px;
+}
+.table{
+    height: 450px;
+    margin: 50px 0;
+}
+.setview{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	color: #B2B4B6;
+	background: #F7F8FD;
+	border-bottom: 1px solid #EEE;
+}
+.setview span{
+	display: inline-block;
+	margin: 0 7px;
+}
+.setview .setting{
+	cursor: pointer;
+}
+.setview .setting:hover{
+	border-bottom: 3px solid #EEE;
+}
+.seth{
+	color: #C3C3C5;
+	cursor: default;
+}
+.spanactive{
+	border-bottom: 3px solid #78BEEE;
+}
+.userinput input{
+	color: #B2B4B6;
+}
+.cution{
+	display: none;
+	color: #f00;
+}
