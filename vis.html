@@ -31,12 +31,29 @@
     	<span class="top_y setting">峰值</span>
     	<span class="ave_y setting">平均值</span>
     </div>
-		<div class="table" id="chart"></div>
-</body>
-</html>
-		<input type="text" id="data"><span class="cution">输入不能为空！</span>
+	<div class="table" id="chart"></div>
+	</div>
+	<div class="textar">
+	<div>数据</div>
+		<textarea id="data"></textarea><span class="cution">输入不能为空！</span>
 		<br>
-		<button id="btn">提交</button>
+		<button id="btn_data">提交</button>
+	</div>
+	<div class="textar">
+		<div>ajax请求</div>
+		<textarea id="ajax"></textarea><span class="cution">输入不能为空！</span>
+		<br>
+		<button id="btn_ajax">提交</button>
+	</div>
+	<div id="super_option" class="super_option">
+		<div class="configuration"><span>title</span><span><input type="text" placeholder="请输入标题" id="title_name"></span></div>
+		<div class="configuration" id="x_name"><span>xAxis</span><span><input type="text" placeholder="请输入X轴名称"></span></div>
+		<div class="configuration"><span>yAxis</span><span><input type="text" placeholder="请输入Y名称" id="y_name"></span></div>
+		<div class="configuration"><span>dataZoom</span><span><input type="checkbox" name="dataZoom" id="data_zoom"><label for="data_zoom">开启</label></span></div>
+		<div class="configuration"><span>toolbox</span><span><input type="checkbox" name="toolbox" id="toolbox"><label for="toolbox">开启</label></span></div>
+		<div class="configuration"><span>series</span><span><input type="radio" name="seriesType" id="ser_bar"><label for="ser_bar">柱状图</label><input type="radio" name="seriesType" id="ser_line"><label for="ser_line">折线图</label></span></div>
+		<button id="btn_opt" class="configuration">提交</button>
+	</div>
 	<script src="js/echarts.min.js"></script>
 	<script src="js/jquery-2.2.3.min.js"></script>
 <!--     <script src="js/table0.6.js"></script> -->
