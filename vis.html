@@ -13,7 +13,7 @@
 <body>
 	<div class="main">
 <!--表格一-->
-	<div class="setview">
+	<!-- <div class="setview">
     	<div class="userinput">
 			<span>开始时间：<input type="text" placeholder="格式yymmdd"></span>
 			<span>结束时间：<input type="text" placeholder="格式yymmdd"></span>
@@ -30,7 +30,7 @@
     	<span class="sum_y setting">总值</span>
     	<span class="top_y setting">峰值</span>
     	<span class="ave_y setting">平均值</span>
-    </div>
+    </div> -->
 	<div class="table" id="chart"></div>
 	</div>
 	<div class="textar">
@@ -45,6 +45,13 @@
 		<br>
 		<button id="btn_ajax">提交</button>
 	</div>
+	<div class="textar">
+	<div>请选择横纵轴</div>
+		<div><span class="cution" id="xy_cution">选择的X、Y轴相同！</span></div>
+		<div><div>x轴:</div><div id="wraper_x"></div></div>
+		<div><div>y轴:</div><div id="wraper_y"></div></div>
+		<button id="btn_xy">绘制</button>
+	</div>
 	<div id="super_option" class="super_option">
 		<div class="configuration"><span>title</span><span><input type="text" placeholder="请输入标题" id="title_name"></span></div>
 		<div class="configuration" id="x_name"><span>xAxis</span><span><input type="text" placeholder="请输入X轴名称"></span></div>
@@ -52,7 +59,7 @@
 		<div class="configuration"><span>dataZoom</span><span><input type="checkbox" name="dataZoom" id="data_zoom"><label for="data_zoom">开启</label></span></div>
 		<div class="configuration"><span>toolbox</span><span><input type="checkbox" name="toolbox" id="toolbox"><label for="toolbox">开启</label></span></div>
 		<div class="configuration"><span>series</span><span><input type="radio" name="seriesType" id="ser_bar"><label for="ser_bar">柱状图</label><input type="radio" name="seriesType" id="ser_line"><label for="ser_line">折线图</label></span></div>
-		<button id="btn_opt" class="configuration">提交</button>
+		<button id="btn_opt" class="configuration">设置</button>
 	</div>
 	<script src="js/echarts.min.js"></script>
 	<script src="js/jquery-2.2.3.min.js"></script>
