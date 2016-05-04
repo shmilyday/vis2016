@@ -1,6 +1,7 @@
 //数据对象
 var echartsData = "";
 //dom元素
+var chartArea = $("#chartArea");
 var dataInput = $("#data");
 var dataBtn = $("#btn_data");
 var ajaxInput = $("#ajax");
@@ -18,7 +19,7 @@ var yName = $("#y_name");
 var dataZoomOp = $("#data_zoom");
 var toolboxOp = $("#toolbox");
 var serLineOp = $("#ser_line");
-var chart = echarts.init(document.getElementById('chart'));
+var chart = echarts.init(document.getElementById('chart1'));
 //option初始化
 var option = {
             title: {
@@ -159,7 +160,7 @@ function handelData(x1,y1){
             if(key == y1)             
                 y[i] = echartsData[size - i - 1][key];
         }
-    }
+    }	
     return {
         x : x,
         y : y
