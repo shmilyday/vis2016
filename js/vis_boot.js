@@ -300,16 +300,18 @@ chartArea.on("click","button[name^=superSetBtn]",function(event){
 	superSettingModal.modal('show');
 })
 chartArea.on("click","button[name^=deleteChartBtn]",function(){
-	var delId = $(event.target).val();
-	page[delId] = {};
-	var index = 0;
-	for(key in ids){
-		if(ids[key] == delId){
-			index = key;
+	if(confirm("是否删除？")){
+		var delId = $(event.target).val();
+		page[delId] = {};
+		var index = 0;
+		for(key in ids){
+			if(ids[key] == delId){
+				index = key;
+			}
 		}
+		ids.splice(index,1);
+		setPage();
 	}
-	ids.splice(index,1);
-	setPage();
 })
 superSetDoneBtn.on("click",function(){
 	addSuperOption();
