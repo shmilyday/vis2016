@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="style/main_boot.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="js/echarts.min.js"></script>
+	<script src="js/macarons.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1 class="col-md-12">尽情展示你的数据吧！</h1>
+			<div class="col-md-12 chart-area" id="chartArea">
+			</div>
+			<button class="btn btn-primary btn-lg btn-block col-md-12" id="initBtn">创建一个新的图表</button>
+			<button class="btn btn-success btn-lg btn-block col-md-12">生成图表展示页面</button>
+	</div>
+</div>
+<!--高级设置浮层-->
+			<div class="modal fade" id="superSettingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			 <div class="modal-dialog modal-lg">
+			 	<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<h2 class="modal-title">高级设置</h2>
+      				</div>
+      				<div class="modal-body">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputTitle" class="col-sm-2 control-label">标题</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputXAxis" class="col-sm-2 control-label">X轴标题</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputXAxis" placeholder="X Title">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputYAxis" class="col-sm-2 control-label">Y轴标题</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputYAxis" placeholder="Y Title">
+    </div>
+  </div>
+  <div class="form-group">
+      	<label for="inputDataZoom" class="col-sm-2 control-label">dataZoom</label>
+   		<div class="checkbox col-sm-10">
+      	<input type="checkbox" id="inputDataZoom">
+    	</div>
+  </div>
+  <div class="form-group">
+      	<label for="inputToolbox" class="col-sm-2 control-label">toolbox</label>
+   		<div class="checkbox col-sm-10">
+      	<input type="checkbox" id="inputToolbox">
+    	</div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">类型</label>
+   	<div class="radio col-sm-10">
+   		<label for="inputTypeBar" class="col-sm-3">
+   			<input type="radio" id="inputTypeBar" name="tableType">
+   			条形图
+   		</label>
+   		<label for="inputTypeLine" class="col-sm-3">
+   			<input type="radio" id="inputTypeLine" name="tableType">
+   			折线图
+   		</label>
+    </div>
+  </div>
+</form>
+      				</div>
+      				<div class="modal-footer">
+        				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        				<button type="button" class="btn btn-success" id="superSetDoneBtn">设置</button>
+      				</div>
+    			</div>
+			 </div>
+			</div>
+<!--输入数据浮层-->
+			<div class="modal fade" id="addDataModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			 <div class="modal-dialog modal-lg">
+			 	<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<h2 class="modal-title">请输入图表数据</h2>
+      				</div>
+      				<div class="modal-body">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#jsonInp" aria-controls="json" role="tab" data-toggle="tab">json</a></li>
+    <li role="presentation"><a href="#ajaxInp" aria-controls="ajax" role="tab" data-toggle="tab">ajax</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="jsonInp">
+    	<form class="form-horizontal">
+    		<div class="form-group">
+    			<div class="col-sm-12">
+      				<textarea class="form-control" rows="5" id="inputJson" placeholder="请在此输入json数据"></textarea>
+      				<label class="label-check" id="checkJson">
+      				</label>
+    			</div>
+  			</div>
+    	</form>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ajaxInp">
+    	<form class="form-horizontal">
+    		<div class="form-group">
+    			<div class="col-sm-12">
+      				<textarea class="form-control" rows="5" id="inputAjax" placeholder="请在此输入ajax请求"></textarea>
+      				<label class="label-check" id="checkAjax">
+      				</label>
+    			</div>
+  			</div>
+    	</form>
+    </div>
+  </div>
+</div>
+      				<div class="modal-footer">
+        				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        				<button type="button" class="btn btn-primary"  id="nextBtn">下一步</button>
+      				</div>
+    			</div>
+			 </div>
+			</div>
+<!--选择坐标轴浮层-->
+<div class="modal fade" id="chooseXYModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			 <div class="modal-dialog modal-lg">
+			 	<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<h2 class="modal-title">选择x、y轴</h2>
+      				</div>
+      				<div class="modal-body">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">X轴</label>
+   	<div class="radio col-sm-10" id="xWraper">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Y轴</label>
+   	<div class="radio col-sm-10" id="yWraper">
+    </div>
+  </div>
+  <div class="form-group">
+  <label class="col-sm-12 label-check" id="checkXY">x、y轴选择重复！</label>
+  </div>
+</form>
+      				</div>
+      				<div class="modal-footer">
+        				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        				<button type="button" class="btn btn-success" id="initDoneBtn">完成</button>
+      				</div>
+    			</div>
+			 </div>
+			</div>
+	<script src="js/vis_boot.js"></script>
+</body>
+</html>
